@@ -1,35 +1,41 @@
 import React from "react";
 import { ReactNode } from "react";
 import CreateIssueForm from "./CreateIssueForm";
-interface props{
-    children: number;
+interface props {
+  children: number;
 }
-const IssueTable = (children:props) => {
+const IssueTable = (children: props) => {
   return (
     <>
-   
-<button className="btn my-5 bg-orange-300 text-black hover:bg-white" onClick={() => {
-    const modal = document.getElementById('my_modal_4') as HTMLDialogElement;
-    if (modal) {
-        modal.showModal();
-    }
-}}> Create New Issue</button>
-<dialog id="my_modal_4" className="modal">
-  
-  <div className="modal-box w-11/12 max-w-5xl">
+      <button
+        className="btn my-5 bg-orange-300 text-black hover:bg-white"
+        onClick={() => {
+          const modal = document.getElementById(
+            "my_modal_4"
+          ) as HTMLDialogElement;
+          if (modal) {
+            modal.showModal();
+          }
+        }}
+      >
+        {" "}
+        Create New Issue
+      </button>
+      <dialog id="my_modal_4" className="modal">
+        <div className="modal-box w-11/12 max-w-5xl">
+          <h3 className="font-bold text-lg">Create Issue</h3>
+          <p className="py-4">
+            Please fill all the necessary fields. ESC to Leave.
+          </p>
+          <CreateIssueForm />
 
-    <h3 className="font-bold text-lg">Create Issue</h3>
-    <p className="py-4">Please fill all the necessary fields. ESC to Leave.</p>
-    <CreateIssueForm/>
-
-    <div className="modal-action">
-      <form method="dialog">
-    
-        <button className="btn">Submit</button>
-      </form>
-    </div>
-  </div>
-</dialog>
+          <div className="modal-action">
+            <form method="dialog">
+              <button className="btn">Exit</button>
+            </form>
+          </div>
+        </div>
+      </dialog>
 
       <div className="overflow-x-auto">
         <table className="table bg-gray-500 ">
@@ -53,7 +59,7 @@ const IssueTable = (children:props) => {
               <td>
                 <select className="select select-primary w-full max-w-xs">
                   <option disabled selected>
-                  Not Started
+                    Not Started
                   </option>
                   <option>In-progress</option>
                   <option>Stuck</option>
@@ -68,9 +74,9 @@ const IssueTable = (children:props) => {
               <td>Purple</td>
               <td>Red</td>
               <td>
-              <select className="select select-primary w-full max-w-xs">
+                <select className="select select-primary w-full max-w-xs">
                   <option disabled selected>
-                  Not Started
+                    Not Started
                   </option>
                   <option>In-progress</option>
                   <option>Stuck</option>
@@ -85,9 +91,9 @@ const IssueTable = (children:props) => {
               <td>Red</td>
               <td>Red</td>
               <td>
-              <select className="select select-primary w-full max-w-xs">
+                <select className="select select-primary w-full max-w-xs">
                   <option disabled selected>
-                  Not Started
+                    Not Started
                   </option>
                   <option>In-progress</option>
                   <option>Stuck</option>

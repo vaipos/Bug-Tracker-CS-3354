@@ -1,0 +1,35 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Issues {
+  id          Int      @id @default(autoincrement())
+  title       String   @db.VarChar(255)
+  description String   @db.Text
+  status      Status   @default(NOT_STARTED)
+  priority    Priority @default(LOW)
+
+  createdAt DateTime @default(now())
+  updatedAT DateTime @updatedAt
+}
+
+enum Status {
+  NOT_STARTED
+  IN_PROGRESS
+  STUCK
+  COMPLETE
+}
+
+enum Priority {
+  LOW
+  MEDIUM
+  HIGH
+}
