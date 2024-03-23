@@ -1,8 +1,31 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+## Downloading What you Need for this Repo
 
-First, run the development server:
+Please make sure you have the following downloaded:
+- [VScode](https://code.visualstudio.com/) if you don't already have it
+- [Node.js (LTS)](https://nodejs.org/en)
+OPTIONAL FOR GITHUB:
+If you are more comfortable typing in the terminal for Git, then do that (it's like how the TA showed us that one day) OR you can download:
+- [GitHub Desktop](https://desktop.github.com/)
+
+If you are still unsure how to use GIT, please look at the powerpoint our TA made for Git in the Box Folder.
+
+## AFTER INSTALLATION
+
+Open VsCode and click on the "Terminal" tab at the top and create new terminal:
+
+In the terminal, clone the repository to your computer.
+```bash
+git clone https://github.com/vaipos/Bug-Tracker-CS-3354.git
+```
+Next, navigate to the project directory and install the dependencies.
+```bash
+cd Bug-Tracker-CS-3354
+npm install
+```
+
+Finally, start the development server.
 
 ```bash
 npm run dev
