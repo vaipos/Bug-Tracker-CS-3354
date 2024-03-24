@@ -5,9 +5,8 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 Please make sure you have the following downloaded:
 - [VScode](https://code.visualstudio.com/) if you don't already have it
 - [Node.js (LTS)](https://nodejs.org/en)
-OPTIONAL FOR GITHUB:
+- [GitHub Desktop](https://desktop.github.com/) OPTIONAL FOR GITHUB:
 If you are more comfortable typing in the terminal for Git, then do that (it's like how the TA showed us that one day) OR you can download:
-- [GitHub Desktop](https://desktop.github.com/)
 
 If you are still unsure how to use GIT, please look at the powerpoint our TA made for Git in the Box Folder.
 
