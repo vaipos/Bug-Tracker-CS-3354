@@ -8,28 +8,10 @@ interface Props {
 }
 
 const IssueTable: React.FC<Props> = ({ children, data }: Props) => {
-  // Remove the state for issues
-  // const [issues, setIssues] = useState<any[]>([]);
 
   useEffect(() => {
-    // No need to fetch data here since it's already passed through props
 
-    // If you want to fetch data conditionally, you can keep the fetchData function
-    // but you'll need to adjust it to use data passed via props
-    /*
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(`/api/fetchIssue?children=${children}`);
-        setIssues(response.data);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-
-    fetchData();
-    */
-  }, [children, data]); // Include data in the dependency array
-
+  }, [children, data]); 
   return (
     <>
       <button
@@ -62,9 +44,9 @@ const IssueTable: React.FC<Props> = ({ children, data }: Props) => {
 
       <div className="overflow-x-auto">
         <table className="table bg-gray-500">
-          <thead>
+          <thead className=" ">
             <tr>
-              <th>ID</th>
+            <th>ID</th>
               <th>Issue Title</th>
               <th>Description</th>
               <th>Due Date</th>
@@ -74,21 +56,14 @@ const IssueTable: React.FC<Props> = ({ children, data }: Props) => {
           </thead>
           <tbody>
             {data.map((issue) => ( // Change issues to data
-              <tr key={issue.id} className="hover">
-                <td>{issue.id}</td>
-                <td>{issue.title}</td>
+              <tr key={issue.id} className="hover px-3">
+                 <td >{issue.id}</td>
+                <td >{issue.title}</td>
                 <td>{issue.description}</td>
-                <td>{issue.dueDate}</td>
+                <td>{issue.createdAt}</td>
                 <td>{issue.priority}</td>
                 <td>
-                  <select className="select select-primary w-full max-w-xs">
-                    <option disabled selected>
-                      Not Started
-                    </option>
-                    <option>In-progress</option>
-                    <option>Stuck</option>
-                    <option>Complete</option>
-                  </select>
+                <div className="badge p-5 text-white badge-neutral">Not Started</div>
                 </td>
               </tr>
             ))}
