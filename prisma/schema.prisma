@@ -12,6 +12,7 @@ datasource db {
 
 model Issues {
   id          Int      @id @default(autoincrement())
+  children Int    
   title       String   @db.VarChar(255)
   description String   @db.Text
   status      Status   @default(NOT_STARTED)

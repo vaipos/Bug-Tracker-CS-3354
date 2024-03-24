@@ -3,19 +3,28 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 
-const CreateIssueForm = () => {
+interface Props {
+  children: number;
+  
+}
+
+const CreateIssueForm = ({ children }: Props) => {
   const { register, handleSubmit, reset } = useForm();
   const router = useRouter();
   const [error, setError] = useState("");
+
   const onSubmit = async (data: any) => {
     try {
-      await axios.post("api/Issue", data);
-      const modal = document.getElementById("my_modal_4");
+      const p:number = children;
+      const response = await axios.post("/api/Issue", { ...data, p });
+      
+
+     const modal = document.getElementById("my_modal_4");
       if (modal) {
         (modal as HTMLDialogElement).close();
       }
       reset();
-      setError(""); // Clear the error message
+      setError(""); 
     } catch (error) {
       setError("Fill All Fields Appropriately");
     }

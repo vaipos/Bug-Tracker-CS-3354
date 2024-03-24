@@ -1,10 +1,35 @@
-import React from "react";
-import { ReactNode } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import CreateIssueForm from "./CreateIssueForm";
-interface props {
+
+interface Props {
+  data: any[];
   children: number;
 }
-const IssueTable = (children: props) => {
+
+const IssueTable: React.FC<Props> = ({ children, data }: Props) => {
+  // Remove the state for issues
+  // const [issues, setIssues] = useState<any[]>([]);
+
+  useEffect(() => {
+    // No need to fetch data here since it's already passed through props
+
+    // If you want to fetch data conditionally, you can keep the fetchData function
+    // but you'll need to adjust it to use data passed via props
+    /*
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`/api/fetchIssue?children=${children}`);
+        setIssues(response.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+    */
+  }, [children, data]); // Include data in the dependency array
+
   return (
     <>
       <button
@@ -18,7 +43,6 @@ const IssueTable = (children: props) => {
           }
         }}
       >
-        {" "}
         Create New Issue
       </button>
       <dialog id="my_modal_4" className="modal">
@@ -27,8 +51,7 @@ const IssueTable = (children: props) => {
           <p className="py-4">
             Please fill all the necessary fields. ESC to Leave.
           </p>
-          <CreateIssueForm />
-
+          <CreateIssueForm>{children}</CreateIssueForm>
           <div className="modal-action">
             <form method="dialog">
               <button className="btn">Exit</button>
@@ -38,10 +61,10 @@ const IssueTable = (children: props) => {
       </dialog>
 
       <div className="overflow-x-auto">
-        <table className="table bg-gray-500 ">
+        <table className="table bg-gray-500">
           <thead>
             <tr>
-              <th></th>
+              <th>ID</th>
               <th>Issue Title</th>
               <th>Description</th>
               <th>Due Date</th>
@@ -50,57 +73,25 @@ const IssueTable = (children: props) => {
             </tr>
           </thead>
           <tbody>
-            <tr className="hover">
-              <th>1</th>
-              <td>Cy Ganderton</td>
-              <td>Quality Control Specialist</td>
-              <td>Blue</td>
-              <td>Red</td>
-              <td>
-                <select className="select select-primary w-full max-w-xs">
-                  <option disabled selected>
-                    Not Started
-                  </option>
-                  <option>In-progress</option>
-                  <option>Stuck</option>
-                  <option>Complete</option>
-                </select>
-              </td>
-            </tr>
-            <tr className="hover">
-              <th>2</th>
-              <td>Hart Hagerty</td>
-              <td>Desktop Support Technician</td>
-              <td>Purple</td>
-              <td>Red</td>
-              <td>
-                <select className="select select-primary w-full max-w-xs">
-                  <option disabled selected>
-                    Not Started
-                  </option>
-                  <option>In-progress</option>
-                  <option>Stuck</option>
-                  <option>Complete</option>
-                </select>
-              </td>
-            </tr>
-            <tr className="hover">
-              <th>3</th>
-              <td>Brice Swyre</td>
-              <td>Tax Accountant</td>
-              <td>Red</td>
-              <td>Red</td>
-              <td>
-                <select className="select select-primary w-full max-w-xs">
-                  <option disabled selected>
-                    Not Started
-                  </option>
-                  <option>In-progress</option>
-                  <option>Stuck</option>
-                  <option>Complete</option>
-                </select>
-              </td>
-            </tr>
+            {data.map((issue) => ( // Change issues to data
+              <tr key={issue.id} className="hover">
+                <td>{issue.id}</td>
+                <td>{issue.title}</td>
+                <td>{issue.description}</td>
+                <td>{issue.dueDate}</td>
+                <td>{issue.priority}</td>
+                <td>
+                  <select className="select select-primary w-full max-w-xs">
+                    <option disabled selected>
+                      Not Started
+                    </option>
+                    <option>In-progress</option>
+                    <option>Stuck</option>
+                    <option>Complete</option>
+                  </select>
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>

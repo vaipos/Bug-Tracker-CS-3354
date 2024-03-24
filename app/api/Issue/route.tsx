@@ -4,23 +4,32 @@ import prisma from "@/prisma/client";
 
 const schema = z.object({
     title: z.string().min(1),
-    description: z.string().min(2)
+    description: z.string().min(1),
+
 })
 
 export async function POST(request: NextRequest) {
-    const req = await request.json();
-    const valid = schema.safeParse(req)
-    if (!valid.success) {
-        return NextResponse.json(valid.error.errors, { status: 400 })
-    }
-    const priority = req.priority.toUpperCase();
-
-    const newIssue = await prisma.issues.create({
-        data: {
-            title: req.title,
-            description: req.description,
-            priority 
+    try {
+        const req = await request.json();     
+        const valid = schema.safeParse(req);
+        if (!valid.success) {
+            return NextResponse.json(valid.error.errors, { status: 400 })
         }
-    })
-    return NextResponse.json(newIssue, { status: 201 });
+
+        const priority = req.priority.toUpperCase();
+
+        const newIssue = await prisma.issues.create({
+            data: {
+                title: req.title,
+                description: req.description,
+                priority, 
+                children: req.p
+            }
+            
+        })
+        return NextResponse.json(newIssue, { status: 201 });
+
+    } catch (error) {
+        console.log("UHOH data:", error); // Log the caught error
+    }
 }
