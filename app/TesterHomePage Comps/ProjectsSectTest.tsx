@@ -39,11 +39,11 @@ const ProjectsSect = () => {
       projectSections.push(
         <div className="collapse collapse-arrow bg-base-200" key={i}>
           <input type="radio" name="my-accordion-2" defaultChecked />
-          <div className="collapse-title text-xl font-medium">
+          <div key = {i} className="collapse-title text-xl font-medium">
             Project {i + 1}
           </div>
           <div className="collapse-content">
-            <IssueTable data={projectIssues}>{projectval}</IssueTable>
+            <IssueTable key={i} data={projectIssues}>{projectval}</IssueTable>
           </div>
         </div>
       );
