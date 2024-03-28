@@ -14,7 +14,7 @@ const IssueTable: React.FC<Props> = ({ children, data }: Props) => {
   return (
     <>
       <div className="overflow-x-auto">
-        <table className="table bg-gray-500">
+        <table className="table bg-gray-700">
           <thead className=" ">
             <tr>
               <th>Issue Title</th>
@@ -31,7 +31,15 @@ const IssueTable: React.FC<Props> = ({ children, data }: Props) => {
                 <td >{issue.title}</td>
                 <td>{issue.description}</td>
                 <td>{issue.createdAt}</td>
-                <td>{issue.priority}</td>
+                <td><div
+                      className={`badge p-3 font-bold badge-outline ${
+                        issue.priority === "MEDIUM" ? "text-amber-400" : ""
+                      } ${issue.priority === "LOW" ? "text-emerald-400" : ""} ${
+                        issue.priority === "HIGH" ? "text-red-400" : ""
+                      }`}
+                    >
+                      {issue.priority.toLowerCase()}
+                    </div></td>
                 <td>
                   <select className="select select-primary w-full max-w-xs">
                     <option disabled selected>

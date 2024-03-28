@@ -5,10 +5,10 @@ import { useRouter } from "next/navigation";
 
 interface Props {
   children: number;
-  
+  modalId: string;
 }
 
-const CreateIssueForm = ({ children }: Props) => {
+const CreateIssueForm = ({ children, modalId }: Props) => {
   const { register, handleSubmit, reset } = useForm();
   const router = useRouter();
   const [error, setError] = useState("");
@@ -19,12 +19,14 @@ const CreateIssueForm = ({ children }: Props) => {
       const response = await axios.post("/api/Issue", { ...data, p });
       
 
-     const modal = document.getElementById("my_modal_4");
+     const modal = document.getElementById(modalId);
       if (modal) {
         (modal as HTMLDialogElement).close();
       }
       reset();
       setError(""); 
+      window.location.reload();
+
     } catch (error) {
       setError("Fill All Fields Appropriately");
     }

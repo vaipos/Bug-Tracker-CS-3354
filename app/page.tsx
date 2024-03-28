@@ -2,7 +2,6 @@
 import Link from 'next/link';
 import React, { useState } from "react";
 import Navbar from './TesterHomePage Comps/NavbarTest';
-import ProjectsSect from './TesterHomePage Comps/ProjectsSectTest';
 import Calendar  from "./TesterHomePage Comps/DatePick";
 const Homepage = () => {
   return (
