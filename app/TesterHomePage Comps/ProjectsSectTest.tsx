@@ -57,14 +57,14 @@ const ProjectsSect = () => {
             >
               Create New Issue
             </button>
-            <dialog id={modalId} className="modal">
-              <div className="modal-box w-11/12 max-w-5xl">
+            <dialog id={modalId} className="modal backdrop-blur-sm">
+              <div className="modal-box w-11/12 max-w-5xl h-auto ">
                 <h3 className="font-bold text-lg">Create Issue</h3>
                 <p className="py-4">Please fill all the necessary fields. ESC to Leave.</p>
                 <CreateIssueForm modalId={modalId}>{i+1}</CreateIssueForm> {/* Pass modalId */}
                 <div className="modal-action">
                   <form method="dialog">
-                    <button className="btn">Exit</button>
+               
                   </form>
                 </div>
               </div>

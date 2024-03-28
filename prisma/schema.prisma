@@ -18,7 +18,7 @@ model Issues {
   status      Status   @default(NOT_STARTED)
   priority    Priority @default(LOW)
 
-  createdAt DateTime @default(now())
+  createdAt DateTime 
   updatedAT DateTime @updatedAt
 }
 

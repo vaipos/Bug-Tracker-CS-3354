@@ -8,7 +8,7 @@ const Navbar = () => {
         <Link href='/' className='font-bold text-xl'>Tester</Link> 
         
         <div className="flex ">
-        <Link href='/' className='px-10'>Home</Link> 
+        <Link href='/Tester' className='px-10'>Home</Link> 
         <Link href='/' className='px-10'>Status</Link> 
         <Link href='/' className='px-10'>Report</Link> 
         <Link href='/'><svg className="h-6 w-8 text-white"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
