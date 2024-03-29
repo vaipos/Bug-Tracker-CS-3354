@@ -89,9 +89,24 @@ const IssueTable: React.FC<Props> = ({ children, data }: Props) => {
               <th>Due Date</th>
               <th>Priority</th>
               <th className="flex">
-                Status 
-                <div className="tooltip tooltip-right" data-tip="click issue to change status">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="stroke-current shrink-0 w-6 h-6 ml-2 -my-1"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                Status
+                <div
+                  className="tooltip tooltip-right"
+                  data-tip="click issue to change status"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    className="stroke-current shrink-0 w-6 h-6 ml-2 -my-1"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                    ></path>
+                  </svg>
                 </div>
               </th>
               <th>Time Left</th>
@@ -154,11 +169,12 @@ const IssueTable: React.FC<Props> = ({ children, data }: Props) => {
               <label className="form-control w-full max-w-xs">
                 <select className="select select-bordered w-full max-w-xs">
                   <option disabled selected>
-                    Priority
+                    Status
                   </option>
-                  <option>Low</option>
-                  <option>Medium</option>
-                  <option>High</option>
+                  <option> NOT STARTED</option>
+                  <option> IN PROGRESS</option>
+                  <option>STUCK</option>
+                  <option>COMPLETE</option>
                 </select>
               </label>
             </p>
