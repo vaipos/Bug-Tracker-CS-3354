@@ -56,7 +56,7 @@ const IssueTable: React.FC<Props> = ({ children, data }: Props) => {
                 <td>{issue.id}</td>
                 <td>{issue.title}</td>
                 <td>{truncateDescription(issue.description)}</td>
-                <td>{issue.createdAt}</td>
+                <td>{formatDate(issue.createdAt)}</td>
                 <td>
                   <div
                     className={`badge p-3 font-bold badge-outline ${
@@ -118,4 +118,15 @@ const truncateDescription = (description: string) => {
     return description.slice(0, 30) + "...";
   }
   return description;
+};
+
+const formatDate = (dateString: string) => {
+  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+  const due = new Date(dateString);
+  const year = due.getFullYear();
+  const month = due.getMonth();
+  const day = due.getDate(); 
+
+  return months[month] + " " + day + ", " + year;
 };

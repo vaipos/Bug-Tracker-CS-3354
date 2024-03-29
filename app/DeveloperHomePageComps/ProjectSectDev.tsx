@@ -53,7 +53,7 @@ const ProjectsSect = () => {
 
   return (
     <>
-      <div className="px-10 mr-96 ml-3  py-10">
+      <div className="px-10  ml-3  py-10">
         <div className="flex">
           <div className="text-3xl font-bold py-3">Projects</div>
         </div>
