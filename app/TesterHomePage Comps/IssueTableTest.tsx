@@ -112,18 +112,8 @@ const IssueTable: React.FC<Props> = ({ children, data }: Props) => {
                     {selectedIssue.priority}
                   </div>
                 </p>
-                  <strong className="font-normal text-xs px-2">Status:</strong>{" "}
-                  <label className="w-1/2">
-                    <select className="select select-bordered m-2 text-xs inline-flex ml-5">
-                      <option disabled selected>
-                        Status
-                      </option>
-                      <option> NOT STARTED</option>
-                      <option> IN PROGRESS</option>
-                      <option>STUCK</option>
-                      <option>COMPLETE</option>
-                    </select>
-                  </label>
+                  <strong className="font-normal text-xs px-2">Status:</strong>{selectedIssue.status}
+                  
                   <br></br>
                   <div className="font-normal text-xs p-2 inline-block">Due Date:</div>  
                   <div className="font-normal text-xs p-2 inline-block">{formatDate(selectedIssue.createdAt)}</div>          

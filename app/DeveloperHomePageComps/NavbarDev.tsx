@@ -9,8 +9,8 @@ const Navbar = () => {
   return (
     <>
       <div className="px-7 py-8 flex justify-between mx-8 border-b-4 border-orange-500">
-        <Link href="/" className="font-bold text-xl">
-          Developer
+      <Link href="/" className="font-bold text-2xl my-3">
+          Developer Dashboard
         </Link>
 
         <div className="flex items-center">
