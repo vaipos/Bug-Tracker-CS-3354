@@ -46,19 +46,19 @@ const Homepage = () => {
 
   return (
     <>
-      <div className="hero min-h-screen bg-base-200">
-        <div className="ml-10 hero-content flex-col lg:flex-row-reverse h-72">
-          <img src="atr.png" className="" />
+      <div className="hero min-h-screen bg-slate-950 animate-ease-out ">
+        <div className="hero-content ml-20 flex-col lg:flex-row-reverse h-72">
+          <img src="atr.png" className="animate-fade animate-duration-[2500ms]" />
           <div>
-            <h1 className=" text-8xl font-bold ">BugTracker</h1>
-            <p className="py-6">
+            <h1 className="text-9xl font-bold animate-fade-up animate-duration-[2500ms] ">Bug Tracker</h1>
+            <p className="py-6 animate-fade-up animate-duration-[2500ms]">
               Tester to developer, help track your project issues and bugs. Bring
               organization and efficiency through analytics on project
               progression.
             </p>
-            <div className="flex flex-col "></div>
+            <div className="flex flex-col animate-fade-up animate-duration-[2500ms]"></div>
             <button
-              className="btn bg-orange-300 text-black btn-xs sm:btn-sm md:btn-md lg:btn-lg hover:bg-indigo-200"
+              className="btn shadow-xl shadow-blue-950 bg-indigo-200 text-black btn-xs sm:btn-sm md:btn-md lg:btn-lg hover:bg-white hover:shadow-lg hover:shadow-blue-950"
               onClick={handleLoginClick}
             >
               {session ? (

@@ -29,9 +29,10 @@ const config: Config = {
         neutral: '#DACCB1'
 
       },
+      
     },
   },
-  plugins: [require("daisyui")],
+  plugins: [require("daisyui"),  require('tailwindcss-animated')],
  
   
 }
