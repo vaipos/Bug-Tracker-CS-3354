@@ -6,6 +6,7 @@ Please make sure you have the following downloaded:
 - [VScode](https://code.visualstudio.com/) if you don't already have it
 - [Node.js (LTS)](https://nodejs.org/en)
 - [GitHub Desktop](https://desktop.github.com/) OPTIONAL FOR GITHUB:
+- [MySQL Workbench](https://www.mysql.com/products/workbench/)
 If you are more comfortable typing in the terminal for Git, then do that (it's like how the TA showed us that one day) OR you can download:
 
 If you are still unsure how to use GIT, please look at the powerpoint our TA made for Git in the Box Folder.
@@ -22,8 +23,13 @@ Next, navigate to the project directory and install the dependencies.
 ```bash
 cd Bug-Tracker-CS-3354
 npm install
+npm i next-auth
+npm i prisma@5.3.1
 ```
-
+Set up your own server on MySQL Workbench and then migrate:
+```bash
+npx prisma migrate dev
+```
 Finally, start the development server.
 
 ```bash
