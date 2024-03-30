@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import React from 'react'
-import Calendar  from "./TesterHomePage Comps/DatePick";
 
 const Top = () => {
   return (
@@ -21,7 +20,6 @@ const Top = () => {
         </ul>
       
       </details>
-      <Calendar/>
     </div>
     </div>
   </div>
