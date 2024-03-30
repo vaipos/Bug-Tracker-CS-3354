@@ -37,15 +37,14 @@ const Choose = () => {
 
   return (
     <>
-     <div className="min-h-screen flex justify-center items-center ">
+     <div className="min-h-screen flex justify-center items-center bg-gradient-to-r from-black via-Fuchsia-900 to-Purple-950">
      
-      <div className="card lg:card-side text-black bg-blue-100 shadow-xl w-3/4 h-auto">
+      <div className="card lg:card-side text-black bg-blue-100 w-1/3 h-auto shadow-xl shadow-cyan-300">
  
         <figure>
-        <img src="dog.png" alt="Album" className="object-cover z-90 h-full" />
         </figure>
         <div className="card-body my-20">
-          <h1 className="card-title text-3xl ">Select Account Type</h1>
+          <h1 className="card-title text-3xl items-center">Select Account Type</h1>
           <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col items-baseline">
             <div className="form-control py-4">
               <label className="label cursor-pointer flex items-center gap-2">
