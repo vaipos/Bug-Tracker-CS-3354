@@ -175,7 +175,7 @@ const IssueTable: React.FC<Props> = ({ children, data }: Props) => {
                 </button>
               </div>
               <div className="justify-end col-span-5 border border-gray-400 rounded-lg bg-base-200">
-                <p className="text-xl text-bold border rounded-t-lg px-2 py-1">Details</p>
+                <p className="text-xl text-bold border rounded-t-lg px-2 py-1 border-gray-400">Details</p>
                 <p className="py-2">
                   <strong className="font-normal text-xs px-2">Priority:</strong> 
                   <div className={`badge p-2 font-bold badge-outline text-xs inline-flex ml-5 ${

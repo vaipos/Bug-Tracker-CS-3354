@@ -25,6 +25,7 @@ cd Bug-Tracker-CS-3354
 npm install
 npm i next-auth
 npm i prisma@5.3.1
+npm i @next-auth/prisma-adapter
 ```
 Set up your own server on MySQL Workbench and then migrate:
 ```bash
