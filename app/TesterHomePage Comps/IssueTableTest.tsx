@@ -54,7 +54,7 @@ const IssueTable: React.FC<Props> = ({ children, data }: Props) => {
                 onClick={() => handleRowClick(issue)}
               >
                 <td>{issue.id}</td>
-                <td>{issue.title}</td>
+                <td>{truncateDescription(issue.title)}</td>
                 <td>{truncateDescription(issue.description)}</td>
                 <td>{formatDate(issue.createdAt)}</td>
                 <td>
@@ -81,32 +81,57 @@ const IssueTable: React.FC<Props> = ({ children, data }: Props) => {
 
       {/* Modal */}
       {showModal && selectedIssue && (
-       <div className="fixed z-10 inset-0 overflow-y-auto flex items-center justify-center backdrop-blur-sm">
-       <div className="bg-slate-950 rounded-lg shadow-lg p-6 w-3/4 h-3/4 max-w-screen-lg">
-         <h2 className="text-2xl font-bold mb-4 pb-10">Issue Details</h2>
-         <p className="">
-           <strong>Title:</strong> {selectedIssue.title}
-         </p>
-         <p className="">
-           <strong>Description:</strong> {selectedIssue.description}
-         </p>
-         <p className="">
-           <strong>Due Date:</strong> {selectedIssue.createdAt}
-         </p>
-         <p className="">
-           <strong>Priority:</strong> {selectedIssue.priority}
-         </p>
-         <p className="">
-           <strong>Status:</strong> {selectedIssue.status}
-         </p>
-         <button
-           className="bg-indigo-800 text-white px-4 py-2 mt-4 rounded"
-           onClick={closeModal}
-         >
-           Close
-         </button>
-       </div>
-     </div>
+        <div className="fixed z-10 inset-0 overflow-y-auto flex items-center justify-center backdrop-blur-sm">
+          <div className="bg-slate-950 rounded-lg shadow-lg p-6 w-3/4 h-3/4 max-w-screen-lg relative">
+          <h2 className="text-3xl font-bold mb-4 pt-5">{selectedIssue.title}</h2>
+            <div className="grid grid-cols-12 gap-4 h-3/5">
+              <div className="col-span-7">
+                <p className="text-xl">
+                  <strong>Description:</strong> 
+                  <br></br>
+                  <div className="text-gray-300 text-sm">
+                    {selectedIssue.description}
+                  </div>
+                </p>
+                <button
+                className="bg-indigo-800 text-white px-4 py-2 mx-5 my-5 rounded absolute bottom-0 left-0"
+                onClick={closeModal}
+                >
+                  Close
+                </button>
+              </div>
+              <div className="justify-end col-span-5 border border-gray-400 rounded-lg bg-base-200">
+                <p className="text-xl text-bold border rounded-t-lg px-2 py-1">Details</p>
+                <p className="py-2">
+                  <strong className="font-normal text-xs px-2">Priority:</strong> 
+                  <div className={`badge p-2 font-bold badge-outline text-xs inline-flex ml-5 ${
+                      selectedIssue.priority === "MEDIUM" ? "text-amber-400" : ""
+                    } ${selectedIssue.priority === "LOW" ? "text-emerald-400" : ""} ${
+                      selectedIssue.priority === "HIGH" ? "text-red-400" : ""
+                    }`}>
+                    {selectedIssue.priority}
+                  </div>
+                </p>
+                  <strong className="font-normal text-xs px-2">Status:</strong>{" "}
+                  <label className="w-1/2">
+                    <select className="select select-bordered m-2 text-xs inline-flex ml-5">
+                      <option disabled selected>
+                        Status
+                      </option>
+                      <option> NOT STARTED</option>
+                      <option> IN PROGRESS</option>
+                      <option>STUCK</option>
+                      <option>COMPLETE</option>
+                    </select>
+                  </label>
+                  <br></br>
+                  <div className="font-normal text-xs p-2 inline-block">Due Date:</div>  
+                  <div className="font-normal text-xs p-2 inline-block">{formatDate(selectedIssue.createdAt)}</div>          
+                  <br></br>
+              </div>
+            </div> 
+          </div>
+        </div>
       )}
     </>
   );
