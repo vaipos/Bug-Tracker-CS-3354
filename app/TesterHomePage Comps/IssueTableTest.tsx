@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import CreateIssueForm from "./CreateIssueForm";
-
+/*Object Type that stores all issues and their associated project numbers*/
 interface Props {
   data: IssueDetails[];
   children: number;
 }
-
+//Object Type Issue
 interface IssueDetails {
   id: number;
   title: string;

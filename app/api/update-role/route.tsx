@@ -1,6 +1,7 @@
 import { NextResponse, NextRequest } from "next/server";
 import prisma from "@/prisma/client";
 
+/*API call to update role of user to whatever role they choose between developer and tester*/
 export async function PATCH(req: NextRequest) {
   const { role, email } = await req.json();
 

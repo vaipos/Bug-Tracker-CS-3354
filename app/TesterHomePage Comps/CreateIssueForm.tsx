@@ -7,7 +7,7 @@ interface Props {
   children: number;
   modalId: string;
 }
-
+//This displays the Issue Create Form and accepts input from user for Issue Details
 const CreateIssueForm = ({ children, modalId }: Props) => {
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
   const router = useRouter();

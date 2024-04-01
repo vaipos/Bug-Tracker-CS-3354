@@ -1,6 +1,7 @@
 import { NextResponse, NextRequest } from "next/server";
 import prisma from "@/prisma/client";
 
+/*API call to retrieve all issues for a project */
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
   const children = searchParams.get('children');

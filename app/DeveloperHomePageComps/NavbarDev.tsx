@@ -2,7 +2,7 @@
 import Link from "next/link";
 import React from "react";
 import { useSession } from "next-auth/react";
-
+//Navigational Bar to go inbetween pages for Developer users
 const Navbar = () => {
   const { status, data: session } = useSession();
 

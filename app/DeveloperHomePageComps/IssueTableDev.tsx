@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-
+/*Object Type that stores all issues and their associated project numbers*/
 interface Props {
   data: IssueDetails[];
   children: number;
 }
-
+/*Object Type Issue*/
 interface IssueDetails {
   id: number;
   title: string;
@@ -153,7 +153,7 @@ const IssueTable: React.FC<Props> = ({ children, data }: Props) => {
         </table>
       </div>
 
-      {/* Modal */}
+      {/* Modal: Window to see issues*/}
       {showModal && selectedIssue && (
         <div className="fixed z-10 inset-0 overflow-y-auto flex items-center justify-center backdrop-blur-sm">
           <div className="bg-slate-950 rounded-lg shadow-lg p-6 w-3/4 h-3/4 max-w-screen-lg relative">

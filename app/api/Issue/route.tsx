@@ -7,7 +7,7 @@ const schema = z.object({
     description: z.string().min(1),
 
 })
-
+/*API call to create new issues */
 export async function POST(request: NextRequest) {
     try {
       const req = await request.json();

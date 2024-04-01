@@ -32,7 +32,7 @@ const ProjectsSect = () => {
   const add = () => {
     setProjectVal(projectval + 1);
   };
-
+  // Function to show projects and the table for issues
   const renderProjectSections = () => {
     const projectSections = [];
     for (let i = 0; i < projectval; i++) {
