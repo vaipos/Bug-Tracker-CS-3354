@@ -1,4 +1,18 @@
 -- CreateTable
+CREATE TABLE `Issues` (
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `children` INTEGER NOT NULL,
+    `title` VARCHAR(255) NOT NULL,
+    `description` TEXT NOT NULL,
+    `status` ENUM('NOT_STARTED', 'IN_PROGRESS', 'STUCK', 'COMPLETE') NOT NULL DEFAULT 'NOT_STARTED',
+    `priority` ENUM('LOW', 'MEDIUM', 'HIGH') NOT NULL DEFAULT 'LOW',
+    `createdAt` DATETIME(3) NOT NULL,
+    `updatedAT` DATETIME(3) NOT NULL,
+
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- CreateTable
 CREATE TABLE `Account` (
     `id` VARCHAR(191) NOT NULL,
     `userId` VARCHAR(191) NOT NULL,
@@ -32,6 +46,7 @@ CREATE TABLE `Session` (
 CREATE TABLE `User` (
     `id` VARCHAR(191) NOT NULL,
     `name` VARCHAR(191) NULL,
+    `role` VARCHAR(191) NOT NULL DEFAULT 'none',
     `email` VARCHAR(191) NULL,
     `emailVerified` DATETIME(3) NULL,
     `image` VARCHAR(191) NULL,

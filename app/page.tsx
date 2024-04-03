@@ -26,20 +26,16 @@ const Homepage = () => {
 
   const handleLoginClick = () => {
     if (session) {
-      // User is signed in
       if (apiResponse && (apiResponse.message === 'TESTER' || apiResponse.message === 'DEVELOPER')) {
-        // Navigate to the appropriate route if the user has a valid role
         if (apiResponse.message === 'TESTER') {
           router.push('/Tester');
         } else if (apiResponse.message === 'DEVELOPER') {
           router.push('/Developer');
         }
       } else {
-        // Navigate to the '/Choose' route if the user doesn't have a valid role
         router.push('/Choose');
       }
     } else {
-      // User is not signed in, navigate to the login page
       router.push('/api/auth/signin');
     }
   };
