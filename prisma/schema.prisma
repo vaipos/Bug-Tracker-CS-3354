@@ -15,7 +15,7 @@ model Issues {
   children    Int
   title       String   @db.VarChar(255)
   description String   @db.Text
-  status      Status   @default(NOT_STARTED)
+  status      String   @default("NOT_STARTED")
   priority    Priority @default(LOW)
 
   createdAt DateTime
