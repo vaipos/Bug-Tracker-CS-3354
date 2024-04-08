@@ -185,10 +185,10 @@ const onSubmit = async (data: any) => {
             <strong>Description:</strong> <br />
             <div className="text-gray-300 text-sm">{selectedIssue.description}</div>
           </p>
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <div className="justify-end col-span-5 border border-gray-400 rounded-lg bg-base-200">
+        </div>
+          <form className="justify-end col-span-5 border border-gray-400 rounded-lg bg-base-200 mx-1" onSubmit={handleSubmit(onSubmit)}>
               <p className="text-xl text-bold border rounded-t-lg px-2 py-1 border-gray-400">Details</p>
-              <p className="py-2">
+              <p className="py-2 space-y-3">
                 <strong className="font-normal text-xs px-2">Priority:</strong>
                 <div
                   className={`badge p-2 font-bold badge-outline text-xs inline-flex ml-5 ${
@@ -232,7 +232,7 @@ const onSubmit = async (data: any) => {
               >
                 {late(selectedIssue.createdAt)}
               </div>
-            </div>
+            
             <button
               type="submit"
               className="bg-indigo-800 text-white px-4 py-2 mx-5 my-5 rounded absolute bottom-0 left-0"
@@ -241,12 +241,11 @@ const onSubmit = async (data: any) => {
             </button>
             <button
               onClick={closeModal}
-              className="bg-indigo-800 text-white px-4 py-2 mx-40 my-5 rounded absolute bottom-0"
+              className="bg-indigo-800 text-white px-4 py-2 mx-5 my-5 rounded absolute right-0 bottom-0"
             >
               Close
             </button>
           </form>
-        </div>
       </div>
     </div>
   </div>
