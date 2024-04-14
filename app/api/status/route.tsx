@@ -6,7 +6,7 @@ const schema = z.object({
   id: z.number(),
   status: z.string(),
 });
-
+/* Update Status API */
 export async function PATCH(request: NextRequest) {
   const body = await request.json();
   console.log("Request Body:", body); // Add this line
