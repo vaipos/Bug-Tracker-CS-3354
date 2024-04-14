@@ -8,7 +8,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="px-7 py-8 flex justify-between mx-8 border-b-4 border-orange-500">
+      <div className="px-7 py-8 flex justify-between mx-8 border-b-4 border-slate-300">
         <Link href="/" className="font-bold text-2xl my-3">
           Tester Dashboard
         </Link>

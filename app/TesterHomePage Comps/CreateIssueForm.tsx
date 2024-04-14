@@ -1,17 +1,37 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useRouter } from "next/navigation";
-
+interface User {
+  id: string;
+  name: string;
+}
 interface Props {
   children: number;
   modalId: string;
 }
 //This displays the Issue Create Form and accepts input from user for Issue Details
 const CreateIssueForm = ({ children, modalId }: Props) => {
-  const { register, handleSubmit, reset, formState: { errors } } = useForm();
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
   const router = useRouter();
   const [error, setError] = useState("");
+  const [users, setUsers] = useState<User[]>([]);
+  useEffect(() => {
+    const fetchUsers = async () => {
+      try {
+        const response = await axios.get("/api/fetchUsers");
+        setUsers(response.data);
+      } catch (error) {
+        console.error("Error fetching users:", error);
+      }
+    };
+    fetchUsers();
+  }, []);
 
   const onSubmit = async (data: any) => {
     try {
@@ -74,6 +94,7 @@ const CreateIssueForm = ({ children, modalId }: Props) => {
             {...register("description", { required: true })}
           />
         </label>
+
         <label className="form-control w-full max-w-xs">
           <div className="label">
             <span className="label-text">Set Priority</span>
@@ -88,6 +109,27 @@ const CreateIssueForm = ({ children, modalId }: Props) => {
             <option>Low</option>
             <option>Medium</option>
             <option>High</option>
+          </select>
+        </label>
+        
+
+        <label className="form-control w-full max-w-xs">
+          <div className="label">
+            <span className="label-text">Assign</span>
+          </div>
+          <select
+            className="select select-bordered w-full max-w-xs"
+            {...register("assignee", { required: true })}
+          >
+            <option disabled selected>
+              Assign
+            </option>
+            {Array.isArray(users) &&
+              users.map((user) => (
+                <option key={user.id} value={user.name}>
+                  {user.name}
+                </option>
+              ))}
           </select>
         </label>
         <label className="form-control w-full max-w-xs">

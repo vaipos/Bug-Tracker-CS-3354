@@ -14,7 +14,7 @@ const Choose = () => {
     try {
       const requestData = {
         ...data,
-        email: session?.user?.email || "", // Add the current user's email
+        email: session?.user?.email || "", 
       };
 
       const response = await axios.patch("/api/update-role", requestData);
