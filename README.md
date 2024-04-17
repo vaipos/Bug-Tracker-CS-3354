@@ -27,7 +27,7 @@ npm i next-auth
 npm i -D daisyui@latest
 npm i prisma@5.3.1
 npm i @next-auth/prisma-adapter
-
+npm install recharts
 ```
 Set up your own server on MySQL Workbench and then migrate:
 ```bash
