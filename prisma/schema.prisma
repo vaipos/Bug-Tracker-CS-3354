@@ -17,9 +17,9 @@ model Issues {
   description String   @db.Text
   status      String   @default("NOT_STARTED")
   priority    Priority @default(LOW)
-
-  createdAt DateTime
-  updatedAT DateTime @updatedAt
+  assignedTo  String   @db.VarChar(255)
+  createdAt   DateTime
+  updatedAT   DateTime @updatedAt
 }
 
 enum Status {
@@ -65,7 +65,7 @@ model Session {
 model User {
   id            String    @id @default(cuid())
   name          String?
-  role          String @default("none")
+  role          String    @default("none")
   email         String?   @unique
   emailVerified DateTime?
   image         String?

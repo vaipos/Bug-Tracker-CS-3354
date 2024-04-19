@@ -8,18 +8,13 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="px-7 py-8 flex justify-between mx-8 border-b-4 border-orange-500">
+      <div className="px-7 py-8 flex justify-between mx-8 border-b-4 border-cyan-500">
       <Link href="/" className="font-bold text-2xl my-3">
           Developer Dashboard
         </Link>
 
         <div className="flex items-center">
-          <Link href="/Developer" className="px-10">
-            Home
-          </Link>
-          <Link href="/" className="px-10">
-            Status
-          </Link>
+          
 
           <div className="flex items-center ml-4">
             {status === "authenticated" && (
@@ -40,7 +35,11 @@ const Navbar = () => {
                   className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
                 >
                   <li>
-                    <a>{session.user?.email}</a>
+                  <Link href={"/Developer/Profile"}>
+                      {" "}
+                      <a>{session.user?.email}</a>
+                    </Link>
+                   
                   </li>
                   <li>
                     <Link href="/api/auth/signout" className="">

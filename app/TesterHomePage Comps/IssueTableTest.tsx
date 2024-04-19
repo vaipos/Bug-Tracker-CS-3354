@@ -14,6 +14,7 @@ interface IssueDetails {
   createdAt: string;
   priority: string;
   status: string;
+  assignedTo: string;
 }
 
 const IssueTable: React.FC<Props> = ({ children, data }: Props) => {
@@ -44,6 +45,7 @@ const IssueTable: React.FC<Props> = ({ children, data }: Props) => {
               <th>Due Date</th>
               <th>Priority</th>
               <th>Status</th>
+              <th>Assigned</th>
             </tr>
           </thead>
           <tbody>
@@ -71,6 +73,11 @@ const IssueTable: React.FC<Props> = ({ children, data }: Props) => {
                 <td>
                   <div className="badge p-4 text-white badge-neutral">
                     {issue.status}
+                  </div>
+                </td>
+                <td>
+                  <div className="badge p-4 text-white badge-neutral">
+                    {issue.assignedTo}
                   </div>
                 </td>
               </tr>
@@ -118,6 +125,9 @@ const IssueTable: React.FC<Props> = ({ children, data }: Props) => {
                   <div className="font-normal text-xs p-2 inline-block">Due Date:</div>  
                   <div className="font-normal text-xs p-2 inline-block">{formatDate(selectedIssue.createdAt)}</div>          
                   <br></br>
+                  <div className="font-normal text-xs p-2 inline-block">Assigned To:</div>  
+                  <div className="font-normal text-xs p-2 inline-block">{selectedIssue.assignedTo}</div>          
+
               </div>
             </div> 
           </div>

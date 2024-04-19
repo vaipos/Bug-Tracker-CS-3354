@@ -4,7 +4,7 @@ import axios from "axios";
 import { useRouter } from "next/navigation";
 interface User {
   id: string;
-  name: string;
+  email: string;
 }
 interface Props {
   children: number;
@@ -126,8 +126,8 @@ const CreateIssueForm = ({ children, modalId }: Props) => {
             </option>
             {Array.isArray(users) &&
               users.map((user) => (
-                <option key={user.id} value={user.name}>
-                  {user.name}
+                <option key={user.id} value={user.email}>
+                  {user.email}
                 </option>
               ))}
           </select>

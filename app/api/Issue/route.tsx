@@ -6,6 +6,7 @@ const schema = z.object({
     title: z.string().min(1),
     description: z.string().min(1),
 
+
 })
 /*API call to create new issues */
 export async function POST(request: NextRequest) {
@@ -25,6 +26,7 @@ export async function POST(request: NextRequest) {
           description: req.description,
           priority,
           createdAt, 
+          assignedTo: req.assignee ,
           children: req.p,
         },
       });

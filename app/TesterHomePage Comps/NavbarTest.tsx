@@ -8,18 +8,13 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="px-7 py-8 flex justify-between mx-8 border-b-4 border-slate-300">
+      <div className="px-7 py-8 flex justify-between mx-8 border-b-4 border-indigo-300">
         <Link href="/" className="font-bold text-2xl my-3">
           Tester Dashboard
         </Link>
 
         <div className="flex items-center">
-          <Link href="/Tester" className="px-10">
-            Home
-          </Link>
-          <Link href="/" className="px-10">
-            Report
-          </Link>
+         
 
           <div className="flex items-center ml-4">
             {status === "authenticated" && (
@@ -29,7 +24,9 @@ const Navbar = () => {
                     <div className="w-17 rounded-full">
                       <div className="avatar placeholder">
                         <div className="bg-violet-600 text-neutral-content rounded-full w-12">
-                          <span className="text-lg">{session.user?.name?.substring(0,1)}</span>
+                          <span className="text-lg">
+                            {session.user?.name?.substring(0, 1)}
+                          </span>
                         </div>
                       </div>
                     </div>
@@ -40,7 +37,10 @@ const Navbar = () => {
                   className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
                 >
                   <li>
-                    <a>{session.user?.email}</a>
+                    <Link href={"/Tester/Profile"}>
+                      {" "}
+                      <a>{session.user?.email}</a>
+                    </Link>
                   </li>
                   <li>
                     <Link href="/api/auth/signout" className="">
@@ -51,9 +51,9 @@ const Navbar = () => {
               </div>
             )}
             {status === "unauthenticated" && (
-               <Link href="/api/auth/signin" className="">
-               Login
-             </Link>
+              <Link href="/api/auth/signin" className="">
+                Login
+              </Link>
             )}
           </div>
         </div>

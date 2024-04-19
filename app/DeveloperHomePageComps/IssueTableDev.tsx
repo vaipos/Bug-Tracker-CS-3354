@@ -15,13 +15,13 @@ interface IssueDetails {
   createdAt: string;
   priority: string;
   status: string;
+  assignedTo: string;
 }
 
 const IssueTable: React.FC<Props> = ({ children, data }: Props) => {
   const { register, handleSubmit } = useForm();
 
 const onSubmit = async (data: any) => {
-  console.log(data)
    data.id = parseInt(data.id);
   try {
     const response = await axios.patch('/api/status', JSON.stringify(data), {
@@ -168,6 +168,7 @@ const onSubmit = async (data: any) => {
                 >
                   {late(issue.createdAt)} 
                 </td>
+         
               </tr>
             ))}
           </tbody>
