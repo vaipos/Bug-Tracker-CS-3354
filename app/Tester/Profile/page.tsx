@@ -13,8 +13,9 @@ const Profile = () => {
   return (
     <>
       <div className="h-screen">
+      <Link href="/Tester">
         <button className="m-8 mx-14 btn btn-circle btn-outline">
-          <Link href="/Tester">
+       
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-6 w-6"
@@ -29,8 +30,9 @@ const Profile = () => {
                 d="M10 19l-7-7m0 0l7-7m-7 7h18"
               />
             </svg>
-          </Link>
+   
         </button>
+        </Link>
         <div className="flex ">
           <div className="bg-slate-950 py-20 px-10 mx-14 rounded-3xl skeleton">
             <div className="avatar">

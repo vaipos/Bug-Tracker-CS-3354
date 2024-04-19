@@ -110,12 +110,12 @@ const Tester = () => {
          
           <div className=" w-2/5 bg-slate-900 rounded-xl my-10  shadow-xl overflow-hidden shadow-indigo-400 ">
             <div className="my-10 scale-90">
-              <div className="mx-14 text-xl">Priority Analytics</div>
+              <div className="mx-14 text-2xl">Priority</div>
               <ResponsiveContainer height={500}>
                 <BarChart data={priorityData}>
                   <XAxis dataKey="name" className="text-white" />
                   <YAxis type="number" domain={[0, "dataMax + 1"]} />
-
+                  
                   <Bar dataKey="value" fill="#8884d8" />
                   <Tooltip
                     cursor={{ fill: "transparent" }}
@@ -129,7 +129,7 @@ const Tester = () => {
           </div>
           <div className="bg-slate-900 mx-48 w-2/5 rounded-xl my-10 shadow-xl overflow-hidden shadow-indigo-400">
             <div className="my-10  scale-90">
-              <div className=" text-xl mx-14">Status Analytics</div>
+              <div className=" text-2xl mx-14">Status</div>
               <ResponsiveContainer height={500}>
                 <BarChart data={statusData}>
                   <XAxis dataKey="name" />

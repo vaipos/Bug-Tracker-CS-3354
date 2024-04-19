@@ -6,7 +6,7 @@ import Link from "next/link";
 import { Footer } from "../../Footer";
 
 interface Prop {
-    children : string
+  children: string;
 }
 
 const Profile = () => {
@@ -15,8 +15,8 @@ const Profile = () => {
   return (
     <>
       <div className="h-screen">
-        <button className="m-8 mx-14 btn btn-circle btn-outline">
-          <Link href="/Developer">
+        <Link href="/Developer">
+          <button className="m-8 mx-14 btn btn-circle btn-outline">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-6 w-6"
@@ -31,8 +31,8 @@ const Profile = () => {
                 d="M10 19l-7-7m0 0l7-7m-7 7h18"
               />
             </svg>
-          </Link>
-        </button>
+          </button>
+        </Link>
         <div className="flex ">
           <div className="bg-slate-950 py-20 px-10 mx-14 rounded-3xl skeleton">
             <div className="avatar">
@@ -95,7 +95,8 @@ const Profile = () => {
                         <th>2</th>
                         <td>Effective JavaScript</td>
                         <td>
-                          Mastering modern JavaScript techniques and best practices
+                          Mastering modern JavaScript techniques and best
+                          practices
                         </td>
                         <td>
                           <a
@@ -111,7 +112,9 @@ const Profile = () => {
                       <tr>
                         <th>3</th>
                         <td>React Patterns and Best Practices</td>
-                        <td>A comprehensive guide to building React applications</td>
+                        <td>
+                          A comprehensive guide to building React applications
+                        </td>
                         <td>
                           <a
                             href="https://example.com/react-patterns-best-practices"
@@ -127,7 +130,8 @@ const Profile = () => {
                         <th>4</th>
                         <td>Node.js Design Patterns</td>
                         <td>
-                          Learn how to design and build scalable Node.js applications
+                          Learn how to design and build scalable Node.js
+                          applications
                         </td>
                         <td>
                           <a
@@ -143,7 +147,9 @@ const Profile = () => {
                       <tr>
                         <th>5</th>
                         <td>Mastering Git</td>
-                        <td>Become a Git expert and streamline your workflow</td>
+                        <td>
+                          Become a Git expert and streamline your workflow
+                        </td>
                         <td>
                           <a
                             href="https://example.com/mastering-git"
@@ -211,7 +217,7 @@ const Profile = () => {
           </div>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </>
   );
 };
